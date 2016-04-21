@@ -22,14 +22,14 @@ const (
 		"`bot help` to see this again."
 )
 
-var greetingPrefixes = []string{"Hi", "Hello", "Howdy", "Wazzzup", "Hey"}
+var greetingPrefixes = []string{"Hi", "Hello", "Howdy", "Wazzzup", "Hey", "Yo"}
 
 func main() {
 	bot := slackbot.New(os.Getenv("SLACK_TOKEN"))
 
 	toMe := bot.Messages(slackbot.DirectMessage, slackbot.DirectMention).Subrouter()
 
-	hi := "hi|hello|bot hi|bot hello"
+	hi := "hi|hello|bot hi|bot hello|yo bot"
 	toMe.Hear(hi).MessageHandler(HelloHandler)
 	bot.Hear(hi).MessageHandler(HelloHandler)
 	bot.Hear("help|bot help").MessageHandler(HelpHandler)
@@ -59,7 +59,7 @@ func CatchAllHandler(ctx context.Context, bot *slackbot.Bot, evt *slack.MessageE
 
 func MentionHandler(ctx context.Context, bot *slackbot.Bot, evt *slack.MessageEvent) {
 	if slackbot.IsMentioned(evt, bot.BotUserID()) {
-		bot.Reply(evt, "You really do care about me. Thanks for the :beers:", WithTyping)
+		bot.Reply(evt, "You really do care about me. Thanks for the :beers:!", WithTyping)
 	}
 }
 
