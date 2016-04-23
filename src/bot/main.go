@@ -16,10 +16,10 @@ const (
 	WithoutTyping = slackbot.WithoutTyping
 
 	HelpText = "I will respond to the following messages: \n" +
-		"`bot hi` for a simple message.\n" +
-		"`bot attachment` to see a Slack attachment message.\n" +
+		"`sheldon hi` for a simple message.\n" +
+		"`sheldon attachment` to see a Slack attachment message.\n" +
 		"`hey @<your bot's name>` to demonstrate detecting a mention.\n" +
-		"`bot help` to see this again."
+		"`sheldon help` to see this again."
 )
 
 var greetingPrefixes = []string{"Hi", "Hello", "Howdy", "Wazzzup", "Hey", "Yo"}
