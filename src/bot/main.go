@@ -32,7 +32,6 @@ func main() {
 	hi := "hi|hello|bot hi|bot hello|yo bot"
 	toMe.Hear(hi).MessageHandler(HelloHandler)
 	bot.Hear(hi).MessageHandler(HelloHandler)
-	bot.Hear("help|bot help").MessageHandler(HelpHandler)
 	bot.Hear("attachment|bot attachment").MessageHandler(AttachmentsHandler)
 	bot.Hear(`<@([a-zA-z0-9]+)?>`).MessageHandler(MentionHandler)
 	bot.Hear("(bot ).*").MessageHandler(CatchAllHandler)
